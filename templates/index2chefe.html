@@ -1,20 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% block content %}
-<h4>Filtrar pela a categoria</h4>
-<form action="/filtrar_categoria" method="POST">
-    <div class="input-group mb-3">
-        <select class="form-select" id="inputGroupSelect01" name="categoria">
-      <option value="Roupas">roupas</option>
-      <option value="Acessórios">acesorios</option>
-      <option value="Calçados">caçaldos</option>
-    </select>
-    <input type="submit" value="Filtrar" class="btn btn-dark">
-    </div>
-  </form>
-<form action="/">
-    <button type="submit" value="voltar" class="btn btn-dark">remover filtro</button>
-</form>
-
 
 <div class="container mt-4">
     <div class="row">

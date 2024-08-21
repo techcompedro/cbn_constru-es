@@ -41,40 +41,7 @@
     </nav>
   </div>
     <div class="container">{% block content %}{% endblock %}</div>
-    <div class="card mb-3">
-      
-      <div class="card-body">
-        <h5 class="card-title">lojinha</h5>
-        <p class="card-text">desenvolvida para ser uma loja virtual.</p>
-        <p class="card-text"><small class="text-body-secondary">acesso somnte para adimistradores 
-          <a href="{{ url_for('one') }}">
-            <button type="submit"></button>
-          </a>
-        </small></p>
-      </div>
-    </div>
-<script>
-    // Função para alternar o menu dropdown
-    function toggleDropdown() {
-        var dropdown = document.querySelector('.dropdown');
-        dropdown.classList.toggle('show');
-    }
 
-    // Fechar o dropdown se clicar fora dele
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropdown button')) {
-            var dropdowns = document.getElementsByClassName('dropdown-content');
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.style.display === 'block') {
-                    openDropdown.style.display = 'none';
-                }
-            }
-            var dropdown = document.querySelector('.dropdown');
-            dropdown.classList.remove('show');
-        }
-    }
-</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
