@@ -1,17 +1,21 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-    <h4>Registrar</h4>
-    <form action="/register" method="post">
-        <div class="input-field">
-            <input type="text" id="username" name="username" required>
-            <label for="username">Username</label>
-        </div>
-        <div class="input-field">
-            <input type="password" id="password" name="password" required>
-            <label for="password">Password</label>
-        </div>
-        <button type="submit" class="waves-effect waves-light btn">Registrar</button>
-    </form>
+<form action="/register" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required><br>
+
+    <label for="role">Role:</label>
+    <select name="role" required>
+        <option value="cliente">Cliente</option>
+        <option value="chefe">Chefe</option>
+        <option value="gerente">Gerente</option>
+    </select><br>
+
+    <button type="submit">Registrar</button>
+</form>
 
 {% endblock %}

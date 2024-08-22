@@ -28,9 +28,21 @@
                     <p class="card-text">Preço: R$ {{ produto.venda_valor }}</p>
                     <p class="card-text">Quantidade: {{ produto.qtn }}</p>
                     <a href="#"class="btn btn-dark">Comprar</a>
+                    {% for u in user %}
+                    {% if u.cargo == 'gerente' %}
+    <a href="{{ url_for('editar', produto_id=prod.id) }}" class="btn btn-primary">Editar</a>
+    <form action="{{ url_for('deletar', produto_id=prod.id) }}" method="post" style="display:inline;">
+        <button type="submit" class="btn btn-danger">Deletar</button>
+    </form>
+{% elif u.role == 'chefe' %}
+    <a href="{{ url_for('editar', produto_id=prod.id) }}" class="btn btn-primary">Editar</a>
+
+{% endif %}
+{% endfor %}
                 </div>
             </div>
         </div>
+
         {% endfor %}
     </div>
 </div>

@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
-
+import  random
 engine = create_engine('sqlite:///loja.db', echo=True)
 Base = declarative_base()
 
@@ -10,6 +10,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(50), unique=True, nullable=False)
     password = Column(String(50), nullable=False)
+    cargo = Column(String(20), nullable=False, default='cliente')
     produtos = relationship('Produtos', back_populates='user')  # Corrigido 'con' para 'produtos'
     
 
@@ -28,5 +29,21 @@ class Produtos(Base):
 
 Session = sessionmaker(bind=engine)
 session = Session()
-#Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)
+def adicionar_produtos():
+    categorias = ['Eletrônicos', 'Roupas', 'Alimentos', 'Livros', 'Brinquedos']  # Lista de categorias
 
+    for i in range(220):
+        produto = Produtos(
+            nome=f'Produto {i+1}',
+            img=f'url_da_imagem_{i+1}.jpg',
+            venda_valor=round(random.uniform(10.0, 100.0), 2),
+            custo_valor=round(random.uniform(5.0, 50.0), 2),
+            lucro=round(random.uniform(5.0, 50.0), 2),
+            qtn=random.randint(1, 100),
+            categoria=random.choice(categorias)  # Seleciona uma categoria aleatória
+        )
+        session.add(produto)
+
+    # Comita as mudanças no banco de dados
+    session.commit()
